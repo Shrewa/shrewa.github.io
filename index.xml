@@ -12,12 +12,23 @@
     
     
     <item>
-      <title>Blog</title>
+      <title>Hugo创建博客</title>
       <link>https://shrewa.github.io/post/blog/</link>
       <pubDate>Thu, 30 Jul 2020 22:30:10 +0800</pubDate>
       
       <guid>https://shrewa.github.io/post/blog/</guid>
-      <description></description>
+      <description>软件 hugo源文件
+Git
+Markdown编辑器
+本地运行 1.创建网站 hugo new site sitename2.下载主题，放在themes内
+3.hugo -server -t themename&amp;ndash;buildDrafts
+远端部署 1.hugo new post/blog.md2.hugo &amp;ndash;theme=themename&amp;ndash;baseUrl=&amp;quot;https://shrewa.github.io/&amp;rdquo; &amp;ndash;buildDrafts
+3.cd public/
+4.git init
+5.git add .
+6.git commit -m&amp;quot;第一次提交&amp;rdquo;
+7.git remote add origin https://github.com/Shrewa/shrewa.github.io
+8.git push -u origin master</description>
     </item>
     
   </channel>
