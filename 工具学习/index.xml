@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>https://shrewa.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>工具学习s on My New Hugo Site</title>
+    <link>https://shrewa.github.io/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 工具学习s on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 Jul 2020 23:27:50 +0800</lastBuildDate>
     
-	<atom:link href="https://shrewa.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shrewa.github.io/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -26,35 +26,6 @@ Compiler Daemon 对编译过程需派生（fork）时，创建一个可被多个
 Parallel Execution 通过Worker API并发执行任务。
 Parallel Download of Dependencies 下载两个依赖元数据（pom.xml）
 Task timeouts 每个任务有timeout属性来限制运行时间，任务timeout时，任务执行线程终止并运行构建完成。</description>
-    </item>
-    
-    <item>
-      <title>Halo</title>
-      <link>https://shrewa.github.io/halo%E5%AD%A6%E4%B9%A0/halo/</link>
-      <pubDate>Fri, 31 Jul 2020 23:08:20 +0800</pubDate>
-      
-      <guid>https://shrewa.github.io/halo%E5%AD%A6%E4%B9%A0/halo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo创建博客</title>
-      <link>https://shrewa.github.io/post/blog/</link>
-      <pubDate>Thu, 30 Jul 2020 22:30:10 +0800</pubDate>
-      
-      <guid>https://shrewa.github.io/post/blog/</guid>
-      <description>软件 hugo源文件
-Git
-Markdown编辑器
-本地运行 1.创建网站 hugo new site sitename2.下载主题，放在themes内
-3.hugo -server -t themename&amp;ndash;buildDrafts
-远端部署 1.hugo new post/blog.md2.hugo &amp;ndash;theme=themename&amp;ndash;baseUrl=&amp;quot;https://shrewa.github.io/&amp;rdquo; &amp;ndash;buildDrafts
-3.cd public/
-4.git init
-5.git add .
-6.git commit -m&amp;quot;第一次提交&amp;rdquo;
-7.git remote add origin https://github.com/Shrewa/shrewa.github.io
-8.git push -u origin master</description>
     </item>
     
   </channel>
