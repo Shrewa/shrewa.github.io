@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Java注解</title>
+
+ 	
+	<link href="/css/journal.css" rel="stylesheet">
+
+ 	
+ 	<link href="/css/style.css" rel="stylesheet">
+</head>
+<body lang="en">
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="https://shrewa.github.io/">My New Hugo Site</a> 
+				</div>
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="https://shrewa.github.io/">Home</a></li>
+						<li><a href="https://shrewa.github.io//page/about/">About</a></li>
+						<li><a href="https://shrewa.github.io//page/resume/">Resume</a></li>
+						<li><a href="https://shrewa.github.io//post/">Blog</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="container">	
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<h3>Java注解</h3>
+				<span class="label label-primary">Sat Aug 1, 2020</span> in 
+				 using tags 			 
+				
+			</small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<br>
+			<h3 id="一个策略属性retentionpolicy">一个策略属性RetentionPolicy</h3>
+<p>@Retention(RetentionPolicy.类型名)指定</p>
+<p>类型名包括:</p>
+<p><strong>RUNTIME</strong> 编译器将Annotation存储于class文件中</p>
+<p><strong>SOURCE</strong> Annotaion信息仅存在于编译器处理期间，编译器处理完后就没有该Annotaion信息</p>
+<p><strong>CLASS</strong> 编译器将Annotation存储于类对应的.class文件中。<strong>默认</strong></p>
+<h3 id="1n个elementtype属性">1~n个ElementType属性</h3>
+<p>@Target(ElementType.类型名)</p>
+<p>类型名包括：</p>
+<p><strong>TYPE</strong> 类、接口或枚举声明</p>
+<p><strong>FIELD</strong> 字段声明</p>
+<p><strong>METHOD</strong> 方法声明</p>
+<p><strong>PARAMETER</strong> 参数声明</p>
+<p><strong>CONSTRUCTOR</strong> 构造方法声明</p>
+<p><strong>LOCAL_VARIABLE</strong> 局部变量声明</p>
+<p><strong>ANNOTATION_TYPE</strong> 注释类型声明</p>
+<p><strong>PACKAGE</strong> 包声明</p>
+<h3 id="interface">@interface</h3>
+<p>声明该接口继承了 java.lang.annotation.Annotation接口</p>
+<p><em>注：和通常的 implemented 实现接口的方法不同。Annotation 接口的实现细节都由编译器完成。通过 @interface 定义注解后，该注解不能继承其他的注解或接口。</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> java.lang.annotation<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Annotation</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">);</span>
+
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">();</span>
+
+    String <span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+
+    Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Annotation<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">annotationType</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="常用annotaion">常用Annotaion</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Deprecated</span>  <span style="color:#75715e">// @Deprecated 所标注内容，不再被建议使用。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Override</span>    <span style="color:#75715e">// @Override 只能标注方法，表示该方法覆盖父类中的方法。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Documented</span>  <span style="color:#75715e">// @Documented 所标注内容，可以出现在javadoc中。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Inherited</span>   <span style="color:#75715e">// @Inherited只能被用来标注“Annotation类型”，它所标注的Annotation具有继承性。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Retention</span>   <span style="color:#75715e">// @Retention只能被用来标注“Annotation类型”，而且它被用来指定Annotation的RetentionPolicy属性。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Target</span>      <span style="color:#75715e">// @Target只能被用来标注“Annotation类型”，而且它被用来指定Annotation的ElementType属性。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@SuppressWarnings</span> <span style="color:#75715e">// @SuppressWarnings 所标注内容产生的警告，编译器会对这些警告保持静默。
+</span></code></pre></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>	
+</div>
+
+  <div class="container">
+    <div class="row col-md-12">
+          <footer>
+            <div>
+                <p>
+                    &copy; 2014  ~ Powered By <a href="http://hugo.spf13.com">Hugo</a>
+                </p>
+            </div>
+            </footer>
+        </div>
+    </div>
+
+    
+    
+    <script src="/js/jquery-min-2.1.1.js"></script>
+    <script src="/js/bootstrap.min-3.1.1.js"></script>
+    </body>
+</html>

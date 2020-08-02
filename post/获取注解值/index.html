@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>获取注解值</title>
+
+ 	
+	<link href="/css/journal.css" rel="stylesheet">
+
+ 	
+ 	<link href="/css/style.css" rel="stylesheet">
+</head>
+<body lang="en">
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="https://shrewa.github.io/">My New Hugo Site</a> 
+				</div>
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="https://shrewa.github.io/">Home</a></li>
+						<li><a href="https://shrewa.github.io//page/about/">About</a></li>
+						<li><a href="https://shrewa.github.io//page/resume/">Resume</a></li>
+						<li><a href="https://shrewa.github.io//post/">Blog</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="container">	
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<h3>获取注解值</h3>
+				<span class="label label-primary">Sun Aug 2, 2020</span> in 
+				 using tags 			 
+				
+			</small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<br>
+			<h4 id="获取类上注解值">获取类上注解值</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">    <span style="color:#66d9ef">public</span> void main() throws Exception {
+
+        Class&lt;ClassName&gt; clazz = ClassName.<span style="color:#66d9ef">class</span>;
+
+        <span style="color:#66d9ef">if</span>(clazz.isAnnotationPresent(AnnotationName.<span style="color:#66d9ef">class</span>)){
+            <span style="color:#75715e">// 获取 &#34;类&#34; 上的注解
+</span><span style="color:#75715e"></span>            AnnotationName getAnnotation = clazz.getAnnotation(AnnotationName.<span style="color:#66d9ef">class</span>);
+            System.<span style="color:#66d9ef">out</span>.println(<span style="color:#e6db74">&#34;\&#34;类\&#34;上的注解值获取到第一个 ：&#34;</span>
+                    + getAnnotation.attributeName1()+ <span style="color:#e6db74">&#34;，第二个：&#34;</span>+ getAnnotation.attributeName2());
+        }
+</code></pre></div><h4 id="获取属性变量上注解值">获取属性变量上注解值</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">        Field[] fields = clazz.getDeclaredFields();
+        <span style="color:#66d9ef">for</span>(Field field: fields){
+            <span style="color:#66d9ef">if</span>(field.isAnnotationPresent(AnnotationName.<span style="color:#66d9ef">class</span>)){
+                AnnotationName bananaAnnotation = field.getAnnotation(AnnotationName.<span style="color:#66d9ef">class</span>);
+                System.<span style="color:#66d9ef">out</span>.println(<span style="color:#e6db74">&#34;\&#34;属性变量\&#34;上的注解值获取到第一个 ：&#34;</span>
+                        + bananaAnnotation.attributeName1()+ <span style="color:#e6db74">&#34;，第二个：&#34;</span>+ bananaAnnotation.attributeName1());
+            }
+</code></pre></div><h4 id="获取方法上注解值">获取方法上注解值</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">       Method[] methods = clazz.getDeclaredMethods();
+</code></pre></div><h4 id="获取方法参数上注解值">获取方法参数上注解值</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">    <span style="color:#66d9ef">public</span> void main() throws Exception {
+
+        Class&lt;ClassName&gt; clazz = ClassName.<span style="color:#66d9ef">class</span>;
+        <span style="color:#75715e">// 获取 &#34;方法参数&#34; 上的注解的值
+</span><span style="color:#75715e"></span>        Method method = clazz.getDeclaredMethod(<span style="color:#e6db74">&#34;methodName&#34;</span>, methodParameter1.<span style="color:#66d9ef">class</span>, methodParameter2.<span style="color:#66d9ef">class</span>);
+        String[] parameterNames = getMethodParameterNamesByAnnotation(method);
+        System.<span style="color:#66d9ef">out</span>.println(<span style="color:#e6db74">&#34;\&#34;方法参数\&#34;上的注解值获取到&#34;</span>+Arrays.toString(parameterNames));
+    }
+    <span style="color:#66d9ef">public</span> static String[] getMethodParameterNamesByAnnotation(Method method) {
+        Annotation[][] parameterAnnotations = method.getParameterAnnotations();
+        <span style="color:#66d9ef">if</span> (parameterAnnotations == <span style="color:#66d9ef">null</span> || parameterAnnotations.length == <span style="color:#ae81ff">0</span>) {
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+        }
+        String[] parameterNames = new String[parameterAnnotations.length];
+        int i = <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">for</span> (Annotation[] parameterAnnotation : parameterAnnotations) {
+            <span style="color:#66d9ef">for</span> (Annotation <span style="color:#66d9ef">annotation</span> : parameterAnnotation) {
+                <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">annotation</span> instanceof annotationName) {
+                    annotationName param = (annotationName) <span style="color:#66d9ef">annotation</span>;
+                    parameterNames[i++] = param.value();
+                }
+            }
+        }
+        <span style="color:#66d9ef">return</span> parameterNames;
+    }
+</code></pre></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>	
+</div>
+
+  <div class="container">
+    <div class="row col-md-12">
+          <footer>
+            <div>
+                <p>
+                    &copy; 2014  ~ Powered By <a href="http://hugo.spf13.com">Hugo</a>
+                </p>
+            </div>
+            </footer>
+        </div>
+    </div>
+
+    
+    
+    <script src="/js/jquery-min-2.1.1.js"></script>
+    <script src="/js/bootstrap.min-3.1.1.js"></script>
+    </body>
+</html>

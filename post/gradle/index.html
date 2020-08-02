@@ -8,7 +8,7 @@
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Hugo创建博客</title>
+    <title>Gradle</title>
 
  	
 	<link href="/css/journal.css" rel="stylesheet">
@@ -43,8 +43,8 @@
 <div class="container">	
 	<div class="row">
 		<div class="col-md-offset-1 col-md-10">
-			<h3>Hugo创建博客</h3>
-				<span class="label label-primary">Thu Jul 30, 2020</span> in 
+			<h3>Gradle</h3>
+				<span class="label label-primary">Fri Jul 31, 2020</span> in 
 				 using tags 			 
 				
 			</small>
@@ -53,23 +53,24 @@
 	<div class="row">
 		<div class="col-md-offset-1 col-md-10">
 			<br>
-			<h2 id="软件">软件</h2>
-<p>hugo源文件</p>
-<p>Git</p>
-<p>Markdown编辑器</p>
-<h2 id="本地运行">本地运行</h2>
-<p>1.创建网站 hugo new site <!-- raw HTML omitted -->sitename<!-- raw HTML omitted --></p>
-<p>2.下载主题，放在themes内</p>
-<p>3.hugo server -t <!-- raw HTML omitted -->themename<!-- raw HTML omitted --> &ndash;buildDrafts</p>
-<h2 id="远端部署">远端部署</h2>
-<p>1.hugo new <!-- raw HTML omitted -->post/blog.md<!-- raw HTML omitted --></p>
-<p>2.hugo &ndash;theme=<!-- raw HTML omitted -->themename<!-- raw HTML omitted --> &ndash;baseUrl=&quot;https://shrewa.github.io/&rdquo; &ndash;buildDrafts</p>
-<p>3.cd public/</p>
-<p>4.git init</p>
-<p>5.git add .</p>
-<p>6.git commit -m&quot;<!-- raw HTML omitted -->第一次提交<!-- raw HTML omitted -->&rdquo;</p>
-<p>7.git remote add origin <a href="https://github.com/Shrewa/shrewa.github.io">https://github.com/Shrewa/shrewa.github.io</a></p>
-<p>8.git push -u origin master</p>
+			<h1 id="特性">特性</h1>
+<h3 id="incremental-builds">Incremental Builds</h3>
+<p>在<!-- raw HTML omitted -->构建<!-- raw HTML omitted -->运行时对比上次构建，任务的输入、输出、实现是否有改变。</p>
+<h3 id="build-caching">Build Caching</h3>
+<p>如果任务在其他电脑上运行过，Gradle会跳过本地运行，直接从<!-- raw HTML omitted -->构建缓存<!-- raw HTML omitted -->载入任务输出。</p>
+<h3 id="incremental-subtasks">Incremental Subtasks</h3>
+<p>在两构建之间发现任务输入、输出、实现改变，再次执行任务。</p>
+<p>任务会根据<!-- raw HTML omitted -->Incremental API <!-- raw HTML omitted -->发现哪个文件出现改变，无需重新构建所有文件。</p>
+<h3 id="incremental-annotation-processing">Incremental Annotation Processing</h3>
+<p>当支持<!-- raw HTML omitted -->注解处理器<!-- raw HTML omitted -->时，增加incremental compilation 的效率。</p>
+<h3 id="compiler-daemon">Compiler Daemon</h3>
+<p>对编译过程需派生（fork）时，创建一个<!-- raw HTML omitted -->可被多个构建重用的守护进程<!-- raw HTML omitted -->，大大提升编译过程的速度</p>
+<h3 id="parallel-execution">Parallel Execution</h3>
+<p>通过<!-- raw HTML omitted -->Worker API<!-- raw HTML omitted -->并发执行任务。</p>
+<h3 id="parallel-download-of-dependencies">Parallel Download of Dependencies</h3>
+<p>下载两个依赖元数据（pom.xml）</p>
+<h3 id="task-timeouts">Task timeouts</h3>
+<p>每个任务有<!-- raw HTML omitted -->timeout属性<!-- raw HTML omitted -->来限制运行时间，任务timeout时，任务执行线程终止并运行构建完成。</p>
 
 		</div>
 	</div>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>SpringBootApplication注解</title>
+
+ 	
+	<link href="/css/journal.css" rel="stylesheet">
+
+ 	
+ 	<link href="/css/style.css" rel="stylesheet">
+</head>
+<body lang="en">
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="https://shrewa.github.io/">My New Hugo Site</a> 
+				</div>
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="https://shrewa.github.io/">Home</a></li>
+						<li><a href="https://shrewa.github.io//page/about/">About</a></li>
+						<li><a href="https://shrewa.github.io//page/resume/">Resume</a></li>
+						<li><a href="https://shrewa.github.io//post/">Blog</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="container">	
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<h3>SpringBootApplication注解</h3>
+				<span class="label label-primary">Sat Aug 1, 2020</span> in 
+				 using tags 			 
+				
+			</small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<br>
+			<h3 id="springbootapplication">@SpringBootApplication</h3>
+<p>表示这是一个springboot的配置类</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Documented</span>
+<span style="color:#a6e22e">@Inherited</span>
+<span style="color:#a6e22e">@SpringBootConfiguration</span>
+<span style="color:#a6e22e">@EnableAutoConfiguration</span>
+<span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span>excludeFilters <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#a6e22e">@Filter</span><span style="color:#f92672">(</span>type <span style="color:#f92672">=</span> FilterType<span style="color:#f92672">.</span><span style="color:#a6e22e">CUSTOM</span><span style="color:#f92672">,</span> classes <span style="color:#f92672">=</span> TypeExcludeFilter<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">),</span>
+		<span style="color:#a6e22e">@Filter</span><span style="color:#f92672">(</span>type <span style="color:#f92672">=</span> FilterType<span style="color:#f92672">.</span><span style="color:#a6e22e">CUSTOM</span><span style="color:#f92672">,</span> classes <span style="color:#f92672">=</span> AutoConfigurationExcludeFilter<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span> <span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> SpringBootApplication <span style="color:#f92672">{</span>
+	<span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h4 id="springbootconfiguration">@SpringBootConfiguration</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Documented</span>
+<span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> SpringBootConfiguration <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>@SpringBootConfiguration 也是来源于 @Configuration，二者功能都是<strong>将当前类标注为配置类</strong>，并将当前类里以 @Bean 注解标记的方法的实例注入到spring容器中，实例名即为方法名。</p>
+<h4 id="enableautoconfiguration">@EnableAutoConfiguration</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Documented</span>
+<span style="color:#a6e22e">@Inherited</span>
+<span style="color:#a6e22e">@AutoConfigurationPackage</span>
+<span style="color:#a6e22e">@Import</span><span style="color:#f92672">(</span>AutoConfigurationImportSelector<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> EnableAutoConfiguration <span style="color:#f92672">{</span>
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>@EnableAutoConfiguration 注解启用自动配置，其可以帮助 SpringBoot 应用<strong>将所有符合条件的 @Configuration 配置</strong>都加载到当前 IoC 容器之中</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9824247-7b06c3e0982092b3.png" alt="https://upload-images.jianshu.io/upload_images/9824247-7b06c3e0982092b3.png"></p>
+<p>从 ClassPath下扫描所有的 META-INF/spring.factories 配置文件，并将spring.factories 文件中的 EnableAutoConfiguration 对应的配置项通过反射机制实例化为对应标注了 @Configuration 的形式的IoC容器配置类，然后注入IoC容器。</p>
+<h4 id="componentscan">@ComponentScan</h4>
+<p>对应于XML配置形式中的 context:component-scan，用于将一些标注了特定注解的bean定义批量采集注册到Spring的IoC容器之中，这些特定的注解大致包括：</p>
+<ul>
+<li>@Controller</li>
+<li>@Entity</li>
+<li>@Component</li>
+<li>@Service</li>
+<li>@Repository</li>
+</ul>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>	
+</div>
+
+  <div class="container">
+    <div class="row col-md-12">
+          <footer>
+            <div>
+                <p>
+                    &copy; 2014  ~ Powered By <a href="http://hugo.spf13.com">Hugo</a>
+                </p>
+            </div>
+            </footer>
+        </div>
+    </div>
+
+    
+    
+    <script src="/js/jquery-min-2.1.1.js"></script>
+    <script src="/js/bootstrap.min-3.1.1.js"></script>
+    </body>
+</html>

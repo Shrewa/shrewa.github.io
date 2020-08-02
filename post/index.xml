@@ -6,10 +6,117 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jul 2020 22:30:10 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 22:01:56 +0800</lastBuildDate>
     
 	<atom:link href="https://shrewa.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>获取注解值</title>
+      <link>https://shrewa.github.io/post/%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E5%80%BC/</link>
+      <pubDate>Sun, 02 Aug 2020 22:01:56 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E5%80%BC/</guid>
+      <description>获取类上注解值 public void main() throws Exception { Class&amp;lt;ClassName&amp;gt; clazz = ClassName.class; if(clazz.isAnnotationPresent(AnnotationName.class)){ // 获取 &amp;#34;类&amp;#34; 上的注解  AnnotationName getAnnotation = clazz.getAnnotation(AnnotationName.class); System.out.println(&amp;#34;\&amp;#34;类\&amp;#34;上的注解值获取到第一个 ：&amp;#34; + getAnnotation.attributeName1()+ &amp;#34;，第二个：&amp;#34;+ getAnnotation.attributeName2()); } 获取属性变量上注解值 Field[] fields = clazz.getDeclaredFields(); for(Field field: fields){ if(field.isAnnotationPresent(AnnotationName.class)){ AnnotationName bananaAnnotation = field.getAnnotation(AnnotationName.class); System.out.println(&amp;#34;\&amp;#34;属性变量\&amp;#34;上的注解值获取到第一个 ：&amp;#34; + bananaAnnotation.attributeName1()+ &amp;#34;，第二个：&amp;#34;+ bananaAnnotation.attributeName1()); } 获取方法上注解值 Method[] methods = clazz.getDeclaredMethods(); 获取方法参数上注解值 public void main() throws Exception { Class&amp;lt;ClassName&amp;gt; clazz = ClassName.class; // 获取 &amp;#34;方法参数&amp;#34; 上的注解的值  Method method = clazz.</description>
+    </item>
+    
+    <item>
+      <title>EnableJpaRepositories注解</title>
+      <link>https://shrewa.github.io/post/enablejparepositories%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Sat, 01 Aug 2020 20:48:15 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/enablejparepositories%E6%B3%A8%E8%A7%A3/</guid>
+      <description>JPA（Java Persistentence API）java持久层API 将java对象与数据库表进行映射。
+将运行期的java实体对象持久化到数据库中。
+ORM（Object Relational Mapping）对象关系映射 将数据库与实体类进行关联，通过操作对象实现对数据库的增删改查。</description>
+    </item>
+    
+    <item>
+      <title>EnableAsync注解</title>
+      <link>https://shrewa.github.io/post/enableasync%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Sat, 01 Aug 2020 20:25:53 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/enableasync%E6%B3%A8%E8%A7%A3/</guid>
+      <description>JAVA中同步和异步的区别 同步：一个线程执行完任务才能进行下一次执行。
+异步：线程执行时间不受限制。
+@EnableAsync 开启springBoot的异步功能，使标记了@Async的方法都能异步运行。</description>
+    </item>
+    
+    <item>
+      <title>SpringBootApplication注解</title>
+      <link>https://shrewa.github.io/post/springbootapplication%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Sat, 01 Aug 2020 15:53:15 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/springbootapplication%E6%B3%A8%E8%A7%A3/</guid>
+      <description>@SpringBootApplication 表示这是一个springboot的配置类
+@Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { ... } @SpringBootConfiguration @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Configuration public @interface SpringBootConfiguration { } @SpringBootConfiguration 也是来源于 @Configuration，二者功能都是将当前类标注为配置类，并将当前类里以 @Bean 注解标记的方法的实例注入到spring容器中，实例名即为方法名。
+@EnableAutoConfiguration @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @AutoConfigurationPackage @Import(AutoConfigurationImportSelector.class) public @interface EnableAutoConfiguration { ... } @EnableAutoConfiguration 注解启用自动配置，其可以帮助 SpringBoot 应用将所有符合条件的 @Configuration 配置都加载到当前 IoC 容器之中
+从 ClassPath下扫描所有的 META-INF/spring.factories 配置文件，并将spring.factories 文件中的 EnableAutoConfiguration 对应的配置项通过反射机制实例化为对应标注了 @Configuration 的形式的IoC容器配置类，然后注入IoC容器。</description>
+    </item>
+    
+    <item>
+      <title>Java注解</title>
+      <link>https://shrewa.github.io/post/java%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Sat, 01 Aug 2020 14:30:52 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/java%E6%B3%A8%E8%A7%A3/</guid>
+      <description>一个策略属性RetentionPolicy @Retention(RetentionPolicy.类型名)指定
+类型名包括:
+RUNTIME 编译器将Annotation存储于class文件中
+SOURCE Annotaion信息仅存在于编译器处理期间，编译器处理完后就没有该Annotaion信息
+CLASS 编译器将Annotation存储于类对应的.class文件中。默认
+1~n个ElementType属性 @Target(ElementType.类型名)
+类型名包括：
+TYPE 类、接口或枚举声明
+FIELD 字段声明
+METHOD 方法声明
+PARAMETER 参数声明
+CONSTRUCTOR 构造方法声明
+LOCAL_VARIABLE 局部变量声明
+ANNOTATION_TYPE 注释类型声明
+PACKAGE 包声明
+@interface 声明该接口继承了 java.lang.annotation.Annotation接口
+注：和通常的 implemented 实现接口的方法不同。Annotation 接口的实现细节都由编译器完成。通过 @interface 定义注解后，该注解不能继承其他的注解或接口。
+package java.lang.annotation; public interface Annotation { boolean equals(Object obj); int hashCode(); String toString(); Class&amp;lt;? extends Annotation&amp;gt; annotationType(); } 常用Annotaion @Deprecated // @Deprecated 所标注内容，不再被建议使用。 @Override // @Override 只能标注方法，表示该方法覆盖父类中的方法。 @Documented // @Documented 所标注内容，可以出现在javadoc中。 @Inherited // @Inherited只能被用来标注“Annotation类型”，它所标注的Annotation具有继承性。 @Retention // @Retention只能被用来标注“Annotation类型”，而且它被用来指定Annotation的RetentionPolicy属性。 @Target // @Target只能被用来标注“Annotation类型”，而且它被用来指定Annotation的ElementType属性。 @SuppressWarnings // @SuppressWarnings 所标注内容产生的警告，编译器会对这些警告保持静默。 </description>
+    </item>
+    
+    <item>
+      <title>Halo运行问题</title>
+      <link>https://shrewa.github.io/post/halo%E8%BF%90%E8%A1%8C%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 01 Aug 2020 10:14:11 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/halo%E8%BF%90%E8%A1%8C%E9%97%AE%E9%A2%98/</guid>
+      <description>Command line is too long 解决方法：
+打开项目内.idea中workspace.xml
+&amp;lt;component name=&amp;#34;PropertiesComponent&amp;#34;&amp;gt; 中加入
+&amp;lt;property name=&amp;#34;dynamic.classpath&amp;#34; value=&amp;#34;true&amp;#34; /&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Gradle</title>
+      <link>https://shrewa.github.io/post/gradle/</link>
+      <pubDate>Fri, 31 Jul 2020 23:27:50 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/gradle/</guid>
+      <description>特性 Incremental Builds 在构建运行时对比上次构建，任务的输入、输出、实现是否有改变。
+Build Caching 如果任务在其他电脑上运行过，Gradle会跳过本地运行，直接从构建缓存载入任务输出。
+Incremental Subtasks 在两构建之间发现任务输入、输出、实现改变，再次执行任务。
+任务会根据Incremental API 发现哪个文件出现改变，无需重新构建所有文件。
+Incremental Annotation Processing 当支持注解处理器时，增加incremental compilation 的效率。
+Compiler Daemon 对编译过程需派生（fork）时，创建一个可被多个构建重用的守护进程，大大提升编译过程的速度
+Parallel Execution 通过Worker API并发执行任务。
+Parallel Download of Dependencies 下载两个依赖元数据（pom.xml）
+Task timeouts 每个任务有timeout属性来限制运行时间，任务timeout时，任务执行线程终止并运行构建完成。</description>
+    </item>
+    
+    <item>
+      <title>Halo</title>
+      <link>https://shrewa.github.io/post/halo/</link>
+      <pubDate>Fri, 31 Jul 2020 23:08:20 +0800</pubDate>
+      
+      <guid>https://shrewa.github.io/post/halo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hugo创建博客</title>
@@ -21,7 +128,7 @@
 Git
 Markdown编辑器
 本地运行 1.创建网站 hugo new site sitename2.下载主题，放在themes内
-3.hugo -server -t themename&amp;ndash;buildDrafts
+3.hugo server -t themename&amp;ndash;buildDrafts
 远端部署 1.hugo new post/blog.md2.hugo &amp;ndash;theme=themename&amp;ndash;baseUrl=&amp;quot;https://shrewa.github.io/&amp;rdquo; &amp;ndash;buildDrafts
 3.cd public/
 4.git init
